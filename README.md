@@ -40,7 +40,7 @@ $ npm run front-dev
 ```
 
 #### Access your App
-Open your browser, and go to *localhost:3000*.
+Open your browser, and go to *localhost:3001*.
 
 # Things to note
 Make sure you run *front-dev* at least once before you run *server*
