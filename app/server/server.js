@@ -20,7 +20,7 @@ var
   app = express(),
   routes = require('./routes');
 
-app.set('port', (process.env.PORT || 80));
+app.set('port', (process.env.PORT || 3001));
 app.use('/', express.static(path.join(__dirname, '../public')));
 app.use(logger('dev'));
 app.use(favicon(path.join(__dirname, '../public/src/static/favicon.ico')));
