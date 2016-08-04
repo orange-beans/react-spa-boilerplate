@@ -3,6 +3,7 @@
 A light-weight skeleton to start your React Web App project with most of the popular tools and libraries included.
 
 # Tools / Libraries included
+* express
 * react-router
 * react-css-modules
 * react-slick
@@ -37,5 +38,9 @@ $ npm run server
 ```bash
 $ npm run front-dev
 ```
+
+#### Access your App
+Open your browser, and go to *localhost:3000*.
+
 # Things to note
 Make sure you run *front-dev* at least once before you run *server*
