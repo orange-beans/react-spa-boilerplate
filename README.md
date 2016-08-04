@@ -1,5 +1,5 @@
 # Introduction
-*React-SPA-BoilerPlate*
+*React-SPA-BoilerPlate*:
 A light-weight skeleton to start your React Web App project with most of the popular tools and libraries included.
 
 # Tools / Libraries included
