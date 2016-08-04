@@ -1,0 +1,46 @@
+{
+  "parserOptions": {
+    "parser": "babel-eslint",
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+        "jsx": true,
+        "modules": true
+    }
+  },
+  "rules": {
+    "indent": [2, 2, {"SwitchCase": 1}],
+    "quotes": [1, "single"],
+    "semi": [2,"always"],
+    "max-len": [2, 100],
+    "eqeqeq": [2, "smart"],
+    "space-in-parens": [2, "never"],
+    "array-bracket-spacing": [2, "never"],
+    "object-curly-spacing": [2, "always"],
+    "comma-dangle": [2, "always-multiline"],
+    "no-console": 0,
+    "no-unused-vars": 1,
+    "no-loop-func": 2,
+    "no-var": 1
+  },
+  "env": {
+    "es6": true,
+    "node": true,
+    "mongo": true,
+    "jquery": true,
+    "browser": true,
+    "mocha": true
+  },
+  "globals": {
+    "React": true
+  },
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "15.0"
+    }
+  },
+  "root": true,
+  "plugins": ["react"],
+  "extends": ["eslint:recommended", "plugin:react/recommended"]
+}
