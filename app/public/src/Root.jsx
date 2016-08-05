@@ -14,8 +14,6 @@ import ContentPage from './components/ContentPage';
 import SignIn from './components/SignIn';
 import Register from './components/Register';
 
-import ContainerDemo from './components/ContainerDemo';
-
 const Page1 = (props) => {
   return (
     <ContentPage>

@@ -8,14 +8,14 @@ import Root from './Root.jsx';
 import configureStore from './configureStore.js';
 const store = configureStore(window.__INITIAL_STATE__);
 
-import ContainerDemo from './components/ContainerDemo';
-
+import RouterReduxDemo from './RouterReduxDemo';
 
 const mountTarget = document.getElementById('root');
 
 // const mountNode = (
 //     <Root store={store} />
 // );
-const mountNode = <ContainerDemo/>;
+
+const mountNode = <RouterReduxDemo/>;
 
 ReactDOM.render(mountNode, mountTarget);
