@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 
 // Overall Page Layout Components
-import { Router, Route, IndexRoute } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 // Overall Page Layout Components
 import { NavBarTop } from './components/NavBar';
@@ -14,10 +14,13 @@ import ContentPage from './components/ContentPage';
 import SignIn from './components/SignIn';
 import Register from './components/Register';
 
+import ContainerDemo from './components/ContainerDemo';
+
 const Page1 = (props) => {
   return (
     <ContentPage>
       <h1>Put your Contents for Page1 here</h1>
+      {props.children}
     </ContentPage>
   );
 };
@@ -58,15 +61,16 @@ export default class Root extends React.Component {
   render () {
     return (
       <Provider store={this.props.store}>
-        <Router>
+        <Router history={browserHistory}>
           <Route path="/" component={App}>
             <IndexRoute component={IntroPage} />
-            <Route path="/intro" component={IntroPage} />
-            <Route path="/page1" component={Page1} />
-            <Route path="/page2" component={Page2} />
-            <Route path="/page3" component={Page3} />
-            <Route path="/signin" component={SignIn} />
-            <Route path="/register" component={Register} />
+            <Route path="intro" component={IntroPage} />
+            <Route path="page1" component={Page1}>
+            </Route>
+            <Route path="page2" component={Page2} />
+            <Route path="page3" component={Page3} />
+            <Route path="signin" component={SignIn} />
+            <Route path="register" component={Register} />
           </Route>
         </Router>
       </Provider>

@@ -171,10 +171,26 @@ class WidgetList extends Component{
   }
 }
 
-class App extends Component {
+// class ContainerDemo extends Component {
+//   render() {
+//     return (
+//       <Router history={browserHistory}>
+//         <Route path='/' component={MainLayout}>
+//           <IndexRoute component={Home}/>
+//           <Route component={SearchLayout}>
+//             <Route path='users' component={UserListContainer}></Route>
+//             <Route path='widgets' component={WidgetList}></Route>
+//           </Route>
+//         </Route>
+//       </Router>
+//     );
+//   }
+// }
+
+class ContainerDemo extends Component {
   render() {
     return (
-      <Router history={browserHistory}>
+      <Router>
         <Route path='/' component={MainLayout}>
           <IndexRoute component={Home}/>
           <Route component={SearchLayout}>
@@ -187,4 +203,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default ContainerDemo;
