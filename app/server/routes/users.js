@@ -7,9 +7,9 @@ var
 
 // Put your own APIs here
 let users = [
-  { id: 1, name:'Ryan', active:true },
-  { id: 2, name:'Michael', active:true },
-  { id: 3, name:'Dan', active:true },
+  { id: 1, name:'Orange', active:true },
+  { id: 2, name:'Beans', active:true },
+  { id: 3, name:'Apple', active:true },
 ];
 
 // Simulate to return users information

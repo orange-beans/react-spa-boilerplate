@@ -29,7 +29,7 @@ class MainLayout extends Component{
         <aside className="primary-aside">
           <li><Link to='/'>Home</Link></li>
           <li><Link to='/users'>Users</Link></li>
-          <li><Link to='/widgets'>Widgets</Link></li>
+          <li><Link to='/games'>Games</Link></li>
         </aside>
         <main>
           {this.props.children}
@@ -159,13 +159,13 @@ class UserListContainer extends Component{
   }
 }
 
-class WidgetList extends Component{
+class GameList extends Component{
   render() {
     return (
       <ul className="user-list">
-        <li>Game</li>
-        <li>Music</li>
-        <li>Sports</li>
+        <li>StarCraft 2</li>
+        <li>DOTA 2</li>
+        <li>Rome 2</li>
       </ul>
     );
   }
@@ -179,7 +179,7 @@ class WidgetList extends Component{
 //           <IndexRoute component={Home}/>
 //           <Route component={SearchLayout}>
 //             <Route path='users' component={UserListContainer}></Route>
-//             <Route path='widgets' component={WidgetList}></Route>
+//             <Route path='games' component={GameList}></Route>
 //           </Route>
 //         </Route>
 //       </Router>
@@ -190,12 +190,12 @@ class WidgetList extends Component{
 class ContainerDemo extends Component {
   render() {
     return (
-      <Router>
+      <Router history={browserHistory}>
         <Route path='/' component={MainLayout}>
           <IndexRoute component={Home}/>
           <Route component={SearchLayout}>
             <Route path='users' component={UserListContainer}></Route>
-            <Route path='widgets' component={WidgetList}></Route>
+            <Route path='games' component={GameList}></Route>
           </Route>
         </Route>
       </Router>
