@@ -8,26 +8,16 @@ import Root from './Root.jsx';
 import configureStore from './configureStore.js';
 const store = configureStore(window.__INITIAL_STATE__);
 
-const mountTarget = document.getElementById('root');
-const mountNode = (
-    <Root store={store} />
-);
+import App from './explorer/App.jsx';
 
-// import { Router, Route, IndexRoute } from 'react-router';
-//
-// class Home extends Component {
-//   render() {
-//     return (
-//       <h1>Welcome to Home page</h1>
-//     );
-//   }
-// }
-//
 // const mountTarget = document.getElementById('root');
 // const mountNode = (
-//     <Router>
-//       <Route path='/' component={Home}></Route>
-//     </Router>
+//     <Root store={store} />
 // );
+
+
+
+const mountTarget = document.getElementById('root');
+const mountNode = <App/>;
 
 ReactDOM.render(mountNode, mountTarget);

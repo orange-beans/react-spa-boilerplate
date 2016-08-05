@@ -119,3 +119,28 @@ a {
   text-align: center;
 }
 /* Move to NavBarTop */
+
+
+.app {
+  display: flex;
+  font-size: 2em;
+}
+.search {
+  display: flex;
+}
+aside.primary-aside {
+  width: 400px;
+}
+
+aside.primary-aside a.active {
+  font-weight: bold;
+}
+
+main {
+  flex: 1;
+}
+
+li > * {
+  display: inline-block;
+  width: 8em;
+}

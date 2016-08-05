@@ -28,6 +28,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // To resolve broswer history url
+app.get('/api/users', routes.users.all);
+app.post('/api/update', routes.users.update);
+
 app.get('*', function (req, res){
   res.sendFile(path.resolve(__dirname, '../public', 'index.html'));
 });
@@ -35,6 +38,7 @@ app.get('*', function (req, res){
 // API Routing for Users
 // TO test using curl
 // curl --data "param1=value1&param2=value2" http://localhost/api/user_add etc.
+
 //app.post('/api/login',isAuthenticated, routes.users.login);
 //app.post('/api/user_add', routes.users.add);
 //app.post('/api/user_del', routes.users.del);

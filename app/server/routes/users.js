@@ -2,9 +2,27 @@ var
   input,
   add, del,
   list, single,
-  login, register;
+  login, register,
+  all, update;
 
 // Put your own APIs here
+let users = [
+  { id: 1, name:'Ryan', active:true },
+  { id: 2, name:'Michael', active:true },
+  { id: 3, name:'Dan', active:true },
+];
+
+// Simulate to return users information
+all = function(req, res, next) {
+  res.json(users);
+};
+
+// Note that you need to reply otherwise client side will always be pending
+update = function(req, res, next) {
+  console.log(req.body);
+  users = req.body;
+  res.send(200);
+};
 
 input = function (req, res, next){
   res.render('users', { title: 'Hello Beans!' });
@@ -47,4 +65,5 @@ module.exports = {
   del: del,
   login: login,
   register: register,
+  all, update,
 };
