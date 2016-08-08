@@ -58,6 +58,7 @@ class UserListContainer extends Component{
     // TODO: how can we update data back to the server as a side-effect
     // work-around: update everytime when render
     //this.updateUsers();
+    console.log('rendering');
     return (
       <UserList users={this.props.users} onToggleActive={this.props.onToggleActive}></UserList>
     );
@@ -76,13 +77,13 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     onFetchSuccess: (users) => {
       dispatch({
         type: 'users/USER_FETCH_SUCCESS',
-        load: { users },
+        payload: { users },
       });
     },
     onToggleActive: (user_id) => {
       dispatch({
         type: 'users/TOGGLE_ACTIVE',
-        load: { user_id },
+        payload: { user_id },
       });
     },
   };
