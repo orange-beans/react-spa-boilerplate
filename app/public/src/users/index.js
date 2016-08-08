@@ -1,8 +1,10 @@
 import _UserList from './UserList.jsx';
 import _UserListContainer from './UserListContainer.jsx';
 
-// export default { UserList, UserListContainer };
-// export default UserListContainer;
+import reducer from './reducer';
+import actions from './actions';
 
 export class UserList extends _UserList {}
 export class UserListContainer extends _UserListContainer {}
+
+export default { reducer, actions };

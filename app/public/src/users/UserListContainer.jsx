@@ -1,30 +1,28 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import UserList from './UserList.jsx';
 
 import _ from 'lodash';
 
-import CSSModules from 'react-css-modules';
-import styles from './styles.css';
-
 class UserListContainer extends Component{
   constructor(props) {
     super(props);
-    this.state = {
-      users: [],
-    };
+    // this.state = {
+    //   users: [],
+    // };
 
     // binding 'this'
-    this.getUsers = this.getUsers.bind(this);
-    this.updateUser = this.updateUser.bind(this);
-    this.toggleActive = this.toggleActive.bind(this);
+    this.fetchUsers = this.fetchUsers.bind(this);
+    this.updateUsers = this.updateUsers.bind(this);
+    //this.toggleActive = this.toggleActive.bind(this);
   }
 
   componentDidMount() {
-    this.getUsers();
+    this.fetchUsers();
   }
 
-  getUsers() {
+  fetchUsers() {
     // Try to use Arrow functions in Promise
     // to maintain this context
     fetch('http://localhost:3001/api/users')
@@ -35,40 +33,59 @@ class UserListContainer extends Component{
       return response.json();
     })
     .then((users) => {
-      this.setState({
-        users,
-      });
+      console.log(users);
+      this.props.onFetchSuccess(users);
     });
   }
 
-  updateUser() {
+  // TODO: how can we update data back to the server as a side-effect
+  // maybe use redux-saga???
+  updateUsers() {
     fetch('http://localhost:3001/api/update', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(this.state.users),
+      body: JSON.stringify(this.props.users),
     }).then((res) => {
       console.log(res);
     });
   }
 
-  toggleActive(user_id) {
-    // find from state object and update Active status
-    let newState = Object.assign({}, this.state);
-    let user = _.find(newState.users, { id:user_id });
-    user.active = !user.active;
-    this.setState(newState);
-    this.updateUser();
-  }
-
   // Note that the key prop is nessesary to minimize DOM change
   render() {
+    // TODO: how can we update data back to the server as a side-effect
+    // work-around: update everytime when render
+    //this.updateUsers();
     return (
-      <UserList users={this.state.users} toggleActive={this.toggleActive}></UserList>
+      <UserList users={this.props.users} onToggleActive={this.props.onToggleActive}></UserList>
     );
   }
 }
 
-export default CSSModules(UserListContainer, styles);
+// put selectors here later
+const mapStateToProps = (state, ownProps) => {
+  return {
+    users: state.userState.users,
+  };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    onFetchSuccess: (users) => {
+      dispatch({
+        type: 'users/USER_FETCH_SUCCESS',
+        load: { users },
+      });
+    },
+    onToggleActive: (user_id) => {
+      dispatch({
+        type: 'users/TOGGLE_ACTIVE',
+        load: { user_id },
+      });
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserListContainer);

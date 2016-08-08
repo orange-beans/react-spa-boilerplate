@@ -6,12 +6,12 @@ import styles from './styles.css';
 
 class UserList extends Component{
 
-  toggleActive(user_id) {
+  onToggleActive(user_id) {
     console.log('toggle', user_id);
   }
 
   static propTypes = {
-    toggleActive: React.PropTypes.func.isRequired,
+    onToggleActive: React.PropTypes.func.isRequired,
   }
   // Note that the key prop is nessesary to minimize DOM change
   render() {
@@ -21,7 +21,8 @@ class UserList extends Component{
           return (
             <li key={user.id}>
               <Link to={`/users/${user.id}`}>{user.name}</Link>
-              <button onClick={this.props.toggleActive.bind(null, user.id)}>
+              <button onClick={this.props.onToggleActive.bind(null, user.id)}>
+                {console.log(user.active)}
                 {user.active? 'Active': 'In-active'}
               </button>
             </li>
