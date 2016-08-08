@@ -22,7 +22,6 @@ class UserList extends Component{
             <li key={user.id}>
               <Link to={`/users/${user.id}`}>{user.name}</Link>
               <button onClick={this.props.onToggleActive.bind(null, user.id)}>
-                {console.log(user.active)}
                 {user.active? 'Active': 'In-active'}
               </button>
             </li>

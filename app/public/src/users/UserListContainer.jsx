@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import _ from 'lodash';
 
 import UserList from './UserList.jsx';
-
-import _ from 'lodash';
+// Actioins
+import * as actions from './actions';
+const { emitFetchSucess, emitToggleActive } = actions;
 
 class UserListContainer extends Component{
   constructor(props) {
@@ -74,18 +76,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onFetchSuccess: (users) => {
-      dispatch({
-        type: 'users/USER_FETCH_SUCCESS',
-        payload: { users },
-      });
-    },
-    onToggleActive: (user_id) => {
-      dispatch({
-        type: 'users/TOGGLE_ACTIVE',
-        payload: { user_id },
-      });
-    },
+    onFetchSuccess: (users) => dispatch(emitFetchSucess(users)),
+    onToggleActive: (user_id) => dispatch(emitToggleActive(user_id)),
   };
 };
 
