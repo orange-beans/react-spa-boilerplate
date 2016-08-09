@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import _ from 'lodash';
 
 import GameList from './GameList.jsx';
-// Actioins
+
+import * as gameApi from './api';
 import * as actions from './actions';
 const { FetchSucess, ToggleActive } = actions;
 
@@ -12,43 +13,10 @@ class GameListContainer extends Component{
     super(props);
 
     // binding 'this'
-    this.fetchGames = this.fetchGames.bind(this);
-    this.updateGames = this.updateGames.bind(this);
   }
 
   componentDidMount() {
-    this.fetchGames();
-  }
-
-  fetchGames() {
-    // Try to use Arrow functions in Promise
-    // to maintain this context
-    fetch('http://localhost:3001/api/games')
-    .then((response) => {
-      if (response.status >= 400) {
-        throw new Error("Bad response from server");
-      }
-      return response.json();
-    })
-    .then((games) => {
-      console.log(games);
-      this.props.onFetchSuccess(games);
-    });
-  }
-
-  // TODO: how can we update data back to the server as a side-effect
-  // maybe use redux-saga???
-  updateGames() {
-    fetch('http://localhost:3001/api/update', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(this.props.games),
-    }).then((res) => {
-      console.log(res);
-    });
+    gameApi.fetchGames(this.props.onFetchSuccess);
   }
 
   // Note that the key prop is nessesary to minimize DOM change
