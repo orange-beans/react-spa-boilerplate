@@ -5,19 +5,15 @@ import _ from 'lodash';
 import UserList from './UserList.jsx';
 // Actioins
 import * as actions from './actions';
-const { emitFetchSucess, emitToggleActive } = actions;
+const { FetchSucess, ToggleActive } = actions;
 
 class UserListContainer extends Component{
   constructor(props) {
     super(props);
-    // this.state = {
-    //   users: [],
-    // };
 
     // binding 'this'
     this.fetchUsers = this.fetchUsers.bind(this);
     this.updateUsers = this.updateUsers.bind(this);
-    //this.toggleActive = this.toggleActive.bind(this);
   }
 
   componentDidMount() {
@@ -76,8 +72,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onFetchSuccess: (users) => dispatch(emitFetchSucess(users)),
-    onToggleActive: (user_id) => dispatch(emitToggleActive(user_id)),
+    onFetchSuccess: (users) => dispatch(FetchSucess(users)),
+    onToggleActive: (user_id) => dispatch(ToggleActive(user_id)),
   };
 };
 

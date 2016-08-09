@@ -31,6 +31,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get('/api/users', routes.users.all);
 app.post('/api/update', routes.users.update);
 
+app.get('/api/games', routes.games.all);
+app.post('/api/games', routes.games.update);
+
 app.get('*', function (req, res){
   res.sendFile(path.resolve(__dirname, '../public', 'index.html'));
 });
