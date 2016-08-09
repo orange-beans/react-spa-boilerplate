@@ -7,6 +7,4 @@ import * as actions from './actions';
 export class UserList extends _UserList {}
 export class UserListContainer extends _UserListContainer {}
 
-console.log(actions.USER_FETCH_SUCCESS);
-
 export default { reducer, actions };

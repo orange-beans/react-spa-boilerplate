@@ -9,7 +9,7 @@ import { MainLayout } from './layout';
 import { Home } from './home';
 import { SearchLayout } from './search';
 import { UserListContainer } from './users';
-import { GameList } from './games';
+import { GameListContainer } from './games';
 
 const store = configureStore(window.devToolsExtension && window.devToolsExtension());
 
@@ -22,7 +22,7 @@ class App extends Component {
             <IndexRoute component={Home}/>
             <Route component={SearchLayout}>
               <Route path='users' component={UserListContainer}></Route>
-              <Route path='games' component={GameList}></Route>
+              <Route path='games' component={GameListContainer}></Route>
             </Route>
           </Route>
         </Router>
