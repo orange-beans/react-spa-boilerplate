@@ -6,28 +6,28 @@ import styles from './styles.css';
 
 class GameList extends Component{
 
-  onToggleActive(id) {
-    console.log('toggle', id);
-  }
-
   static propTypes = {
     onToggleActive: React.PropTypes.func.isRequired,
   }
   // Note that the key prop is nessesary to minimize DOM change
   render() {
     return (
-      <ul className="game-list">
+      <div className='data-list'>
         {this.props.games.map((game) => {
           return (
-            <li key={game.id}>
-              <Link to={`/games/${game.id}`}>{game.name}</Link>
-              <button onClick={this.props.onToggleActive.bind(null, game.id)}>
-                {game.active? 'Active': 'In-active'}
-              </button>
-            </li>
+            <div key={game.id} className='data-list-item'>
+              <div className='details'>
+                <Link to={`/games/${game.id}`}>{game.name}</Link>
+              </div>
+              <div className='control'>
+                <button onClick={this.props.onToggleActive.bind(null, game.id)}>
+                  {game.active? 'Active': 'In-active'}
+                </button>
+              </div>
+            </div>
           );
         })}
-      </ul>
+      </div>
     );
   }
 }

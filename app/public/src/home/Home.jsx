@@ -6,7 +6,14 @@ import styles from './styles.css';
 class Home extends Component {
   render() {
     return (
-      <h1 styleName='heading'>Welcome to Home page</h1>
+      <div className="home-page">
+        <h1>React SPA boilerPlate</h1>
+        <p>
+          see the following
+          <a href="https://github.com/orange-beans/React-SPA-boilerplate"> git </a>
+          for more details.
+        </p>
+      </div>
     );
   }
 }

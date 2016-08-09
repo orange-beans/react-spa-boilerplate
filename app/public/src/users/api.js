@@ -16,14 +16,14 @@ export function fetchUsers(cb) {
 }
 
 // Update user list to the server
-export function updateUsers() {
+export function updateUsers(users) {
   fetch('http://localhost:3001/api/update', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(this.props.users),
+    body: JSON.stringify(users),
   }).then((res) => {
     console.log(res);
   });

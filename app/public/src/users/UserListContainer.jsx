@@ -18,6 +18,11 @@ class UserListContainer extends Component{
     userApi.fetchUsers(this.props.onFetchSuccess);
   }
 
+  // Note to use nextProps instead of this.props
+  componentWillUpdate(nextProps) {
+    userApi.updateUsers(nextProps.users);
+  }
+
   // Note that the key prop is nessesary to minimize DOM change
   render() {
     // TODO: how can we update data back to the server as a side-effect

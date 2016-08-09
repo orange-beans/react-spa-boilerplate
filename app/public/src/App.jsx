@@ -20,10 +20,19 @@ class App extends Component {
         <Router history={browserHistory}>
           <Route path='/' component={MainLayout}>
             <IndexRoute component={Home}/>
-            <Route component={SearchLayout}>
-              <Route path='users' component={UserListContainer}></Route>
-              <Route path='games' component={GameListContainer}></Route>
+
+            <Route path='users'>
+              <Route component={SearchLayout}>
+                <IndexRoute component={UserListContainer} />
+              </Route>
             </Route>
+
+            <Route path='games'>
+              <Route component={SearchLayout}>
+                <IndexRoute component={GameListContainer} />
+              </Route>
+            </Route>
+
           </Route>
         </Router>
       </Provider>

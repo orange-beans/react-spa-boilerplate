@@ -6,28 +6,28 @@ import styles from './styles.css';
 
 class UserList extends Component{
 
-  onToggleActive(user_id) {
-    console.log('toggle', user_id);
-  }
-
   static propTypes = {
     onToggleActive: React.PropTypes.func.isRequired,
   }
   // Note that the key prop is nessesary to minimize DOM change
   render() {
     return (
-      <ul className="user-list">
+      <div className='data-list'>
         {this.props.users.map((user) => {
           return (
-            <li key={user.id}>
-              <Link to={`/users/${user.id}`}>{user.name}</Link>
-              <button onClick={this.props.onToggleActive.bind(null, user.id)}>
-                {user.active? 'Active': 'In-active'}
-              </button>
-            </li>
+            <div key={user.id} className='data-list-item'>
+              <div className='details'>
+                <Link to={`/users/${user.id}`}>{user.name}</Link>
+              </div>
+              <div className='control'>
+                <button onClick={this.props.onToggleActive.bind(null, user.id)}>
+                  {user.active? 'Active': 'In-active'}
+                </button>
+              </div>
+            </div>
           );
         })}
-      </ul>
+      </div>
     );
   }
 }
