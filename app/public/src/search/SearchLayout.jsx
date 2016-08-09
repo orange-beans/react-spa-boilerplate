@@ -16,7 +16,9 @@ class SearchLayout extends Component{
         <div className="search-results">
           {this.props.children}
         </div>
-        <div className="search-footer"></div>
+        <footer className="search-footer">
+          {this.props.totalResults} Results
+        </footer>
       </div>
     );
   }

@@ -20,7 +20,7 @@ all = function(req, res, next) {
 // Note that you need to reply otherwise client side will always be pending
 update = function(req, res, next) {
   console.log(req.body);
-  users = req.body;
+  users = req.body !== [] ? req.body: users ;
   res.send(200);
 };
 

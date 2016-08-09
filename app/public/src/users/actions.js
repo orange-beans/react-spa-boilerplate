@@ -1,8 +1,7 @@
+import { NAME } from './constants';
 
-const FEATURE_NAME = 'users';
-
-export const USER_FETCH_SUCCESS = `${FEATURE_NAME}/USER_FETCH_SUCCESS`;
-export const TOGGLE_ACTIVE = `${FEATURE_NAME}/TOGGLE_ACTIVE`;
+export const USER_FETCH_SUCCESS = `${NAME}/USER_FETCH_SUCCESS`;
+export const TOGGLE_ACTIVE = `${NAME}/TOGGLE_ACTIVE`;
 
 // Action creators
 export function FetchSucess(users) {

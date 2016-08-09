@@ -1,8 +1,7 @@
+import { NAME } from './constants';
 
-const FEATURE_NAME = 'games';
-
-export const FETCH_SUCCESS = `${FEATURE_NAME}/FETCH_SUCCESS`;
-export const TOGGLE_ACTIVE = `${FEATURE_NAME}/TOGGLE_ACTIVE`;
+export const FETCH_SUCCESS = `${NAME}/FETCH_SUCCESS`;
+export const TOGGLE_ACTIVE = `${NAME}/TOGGLE_ACTIVE`;
 
 // Action creators
 export function FetchSucess(games) {

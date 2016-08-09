@@ -4,8 +4,8 @@ import users from './users';
 import games from './games';
 
 const rootReducer = combineReducers({
-  userState: users.reducer,
-  gameState: games.reducer,
+  [users.NAME]: users.reducer,
+  [games.NAME]: games.reducer,
 });
 
 export default rootReducer;

@@ -4,6 +4,7 @@ import _ from 'lodash';
 
 import UserList from './UserList.jsx';
 
+import { NAME } from './constants';
 import * as userApi from './api';
 import * as actions from './actions';
 const { FetchSucess, ToggleActive } = actions;
@@ -38,7 +39,7 @@ class UserListContainer extends Component{
 // put selectors here later
 const mapStateToProps = (state, ownProps) => {
   return {
-    users: state.userState.users,
+    users: state[NAME].users,
   };
 };
 

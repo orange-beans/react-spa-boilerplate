@@ -4,6 +4,7 @@ import _ from 'lodash';
 
 import GameList from './GameList.jsx';
 
+import { NAME } from './constants';
 import * as gameApi from './api';
 import * as actions from './actions';
 const { FetchSucess, ToggleActive } = actions;
@@ -34,7 +35,7 @@ class GameListContainer extends Component{
 // put selectors here later
 const mapStateToProps = (state, ownProps) => {
   return {
-    games: state.gameState.games,
+    games: state[NAME].games,
   };
 };
 
