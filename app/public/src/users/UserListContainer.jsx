@@ -16,7 +16,7 @@ class UserListContainer extends Component{
   }
 
   componentDidMount() {
-    userApi.fetchUsers(this.props.onFetchSuccess);
+    userApi.fetchUsers(this.props.FetchSucess);
   }
 
   // Note to use nextProps instead of this.props
@@ -31,7 +31,7 @@ class UserListContainer extends Component{
     //this.updateUsers();
     console.log('rendering');
     return (
-      <UserList users={this.props.users} onToggleActive={this.props.onToggleActive}></UserList>
+      <UserList users={this.props.users} onToggleActive={this.props.ToggleActive}></UserList>
     );
   }
 }
@@ -45,8 +45,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onFetchSuccess: (users) => dispatch(FetchSucess(users)),
-    onToggleActive: (user_id) => dispatch(ToggleActive(user_id)),
+    FetchSucess: (users) => dispatch(FetchSucess(users)),
+    ToggleActive: (user_id) => dispatch(ToggleActive(user_id)),
   };
 };
 
