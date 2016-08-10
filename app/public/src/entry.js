@@ -12,10 +12,10 @@ import RouterReduxDemo from './RouterReduxDemo';
 
 const mountTarget = document.getElementById('root');
 
-// const mountNode = (
-//     <Root store={store} />
-// );
+const mountNode = (
+  <Root store={store} />
+);
 
-const mountNode = <RouterReduxDemo/>;
+//const mountNode = <RouterReduxDemo/>;
 
 ReactDOM.render(mountNode, mountTarget);
